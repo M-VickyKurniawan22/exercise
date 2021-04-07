@@ -24,4 +24,31 @@
     <string name="detailKontak">Detail Kontak</string>
     <string name="nama">Nama</string>
     <string name="noTel">Nomor Telepon</string>
+
+    <string name="KolomEmail">Masukkan Email</string>
+    <string name="KolomPass">Masukkan Password</string>
+    <string name="KolomLogin">Login</string>
+    <string name="KolomDaftar">Belum Terdaftar?</string>
+    <string name="KolomPendaftaran">Pendaftaran</string>
+    <string name="DaftarNama">Masukkan Nama</string>
+    <string name="DaftarAlamat">Masukan Alamat</string>
+    <string name="TextKelamin">Jenis Kelamin</string>
+    <string name="GanderL">Laki-laki</string>
+    <string name="GanderP">Perempuan</string>
+    <string name="TextAgama">Agama</string>
+    <string name="AgamaIslam">Islam</string>
+    <string name="AgamaKatolik">Katolik</string>
+    <string name="AgamaKristen">Kristen</string>
+    <string name="AgamaHindu">Hindu</string>
+    <string name="AgamaBudha">Budha</string>
+    <string name="AgamaKonghucu">Konghucu</string>
+    <string name="AgamaPenganutKepercayaan">Penganut Kepercayaan</string>
+    <string name="DaftarEmail">Masukkan Email</string>
+    <string name="DaftarPassword">Masukkan Password</string>
+    <string name="DaftarUlangPassword">Masukkan Kembali Password</string>
+    <string name="btnBatal">Batal</string>
+    <string name="btnMasuk">Daftar</string>
+    <string name="masukkan_email">Masukkan Email</string>
+    <string name="masukkan_password">Masukkan Password</string>
+    <string name="login">Login</string>
 </resources>

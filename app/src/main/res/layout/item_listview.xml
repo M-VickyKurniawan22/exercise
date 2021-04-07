@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/kayu"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
         android:id="@+id/tvNama_Item"
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content"
         android:text="@string/namaItem"
         android:textSize="11pt"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"

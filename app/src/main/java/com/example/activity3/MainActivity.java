@@ -8,101 +8,87 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class MainActivity extends AppCompatActivity {
-    EditText edemail,edpasswords;
+
+    EditText edEmail,edPassword;
     Button btnLogin;
-    String email, pass;
+    TextView btnDaftar;
+    String nama,password;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-//        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.mnDaftar)
-        {
-            Intent i = new Intent(getApplicationContext(),ActivityDaftar.class);
-            startActivity(i);
-        }
-        return true;
-//        return super.onOptionsItemSelected(item);
-    }
-
-    public int validasiData() {
-        String emailActive = "vicky@gmail.com";
-        String passActive = "vicky123";
-        email = edemail.getText().toString();
-        pass = edpasswords.getText().toString();
-
-        if (emailActive.equals(email) && passActive.equals(pass)) { // BENAR SEMUA
-            return 1;
-        } else if (emailActive.equals(email) && !passActive.equals(pass)) { // SALAH PASS
-            return 2;
-        } else if (!emailActive.equals(email) && passActive.equals(pass)) { // SALAH EMAIL
-            return 3;
-        }
-        return 0;
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        edemail = findViewById(R.id.edEmail);
-        edpasswords = findViewById(R.id.edPassword);
-        btnLogin = findViewById(R.id.btSignin);
+        btnLogin  =findViewById(R.id.button);
+        edEmail   =findViewById(R.id.Email);
+        edPassword=findViewById(R.id.Password);
+        btnDaftar = findViewById(R.id.Daftar);
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
+
+            String email = "admin@mail.com";
+            String pass = "123456";
+
             @Override
-
             public void onClick(View view) {
-                email = edemail.getText().toString();
-                pass = edpasswords.getText().toString();
+                nama     = edEmail.getText().toString();
+                password = edPassword.getText().toString();
 
-                if(email.isEmpty() || pass.isEmpty()) {
-                    Toast t = Toast.makeText(getApplicationContext(),
-                            "Email dan Password Wajib diisi",
-                            Toast.LENGTH_LONG);
+                // untuk menampilkan toast
+                if (nama.isEmpty() || password.isEmpty()){
+                    Toast t = Toast.makeText(getApplicationContext()
+                            ,"Email dan Password wajib diisi",Toast.LENGTH_LONG);
                     t.show();
-                }else {
 
-                    if(validasiData() == 1){
-                        Toast t = Toast.makeText(getApplicationContext(),
-                                "Sukses !",
-                                Toast.LENGTH_LONG);
+                }
+                else{
+                    if (nama.equals(email) || password.equals(pass)){
+                        Toast t = Toast.makeText(getApplicationContext()
+                                ,"login Berhasil",Toast.LENGTH_LONG);
                         t.show();
+
                         Bundle b = new Bundle();
-                        b.putString("email",email.trim());
-                        b.putString("pass",pass.trim());
 
-                        Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+                        b.putString("a",nama.trim());
+
+                        b.putString("b",password.trim());
+
+                        //ke layout home activity yang berisi list
+                        Intent i =  new Intent(getApplicationContext(),HomeActivity.class);
+
                         i.putExtras(b);
+
                         startActivity(i);
-                    }else if(validasiData() == 0){
-                        Toast t = Toast.makeText(getApplicationContext(),
-                                "Email dan Password anda Salah !\n Silahkan Coba lagi",
-                                Toast.LENGTH_LONG);
-                        t.show();
-                    }else if(validasiData() == 2){
-                        Toast t = Toast.makeText(getApplicationContext(),
-                                "Password anda Salah !\n Silahkan Coba lagi",
-                                Toast.LENGTH_LONG);
-                        t.show();
-                    }else if(validasiData() == 3) {
-                        Toast t = Toast.makeText(getApplicationContext(),
-                                "Email anda Salah !\n Silahkan Coba lagi",
-                                Toast.LENGTH_LONG);
+
+                    }
+                    else{
+                        Toast t = Toast.makeText(getApplicationContext()
+                                ,"login Gagal",Toast.LENGTH_LONG);
+
                         t.show();
                     }
                 }
+
             }
         });
-    }}
+
+
+        btnDaftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // ke layout pendaftaran
+                Intent i =  new Intent(getApplicationContext(),ActivityPendaftaran.class);
+                startActivity(i);
+            }
+        });
+
+
+    }
+
+
+}
